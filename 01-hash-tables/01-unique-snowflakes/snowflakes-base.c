@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define SIZE 100000
+
 int identical_right(int snowflake1[], int snowflake2[], int offset) {
    for (int i = 0; i < 6; i++) {
       if (snowflake1[i] != snowflake2[(i + offset) % 6]) {
@@ -13,7 +15,7 @@ int identical_right(int snowflake1[], int snowflake2[], int offset) {
 
 int identical_left(int snowflake1[], int snowflake2[], int offset) {
    for (int i = 0; i < 6; i++) {
-      int j = i + offset;
+      int j = offset - i;
       if (j < 0) {
          j += 6;
       }
@@ -38,7 +40,6 @@ int are_identical(int snowflake1[], int snowflake2[]) {
 }
 
 void identify_identical(int snowflakes[][6], int n) {
-   int i, j;
    for (int i = 0; i < n; i++) {
       for (int j = i + 1; j < n; j++) {
          if (are_identical(snowflakes[i], snowflakes[j])) {
@@ -47,10 +48,8 @@ void identify_identical(int snowflakes[][6], int n) {
          }
       }
    }
-   printf("No two intergs are alike.\n");
+   printf("No two snowflakes are alike.\n");
 }
-
-#define SIZE 100000
 
 int main(void) {
 
