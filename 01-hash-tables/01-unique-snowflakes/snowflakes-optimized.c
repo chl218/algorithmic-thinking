@@ -66,8 +66,7 @@ void identify_identical(snowflake_node *snowflakes[]) {
 
 int hash(int snowflake[]) {
    return (snowflake[0] + snowflake[1] + snowflake[2] +
-           snowflake[3] + snowflake[4] + snowflake[5]) %
-          SIZE;
+           snowflake[3] + snowflake[4] + snowflake[5]) % SIZE;
 }
 
 int main(void) {
